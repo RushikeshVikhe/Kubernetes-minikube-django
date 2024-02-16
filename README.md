@@ -1,6 +1,8 @@
 # django-todo
 A simple todo app built with django
 
+# Tools Used:
+1)git 2) AWS-EC2 3) Docker 4)Minikube
 # What we Learn in this:
 
 1)Build Kubernetes cluster on AWS from scratch with minikube
