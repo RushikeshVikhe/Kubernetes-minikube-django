@@ -1,38 +1,71 @@
 # django-todo
 A simple todo app built with django
 
-![todo App](https://raw.githubusercontent.com/shreys7/django-todo/develop/staticfiles/todoApp.png)
-### Setup
-To get this repository, run the following command inside your git enabled terminal
-```bash
-$ git clone https://github.com/shreys7/django-todo.git
-```
-You will need django to be installed in you computer to run this app. Head over to https://www.djangoproject.com/download/ for the download guide
+# What we Learn in this:
 
-Once you have downloaded django, go to the cloned repo directory and run the following command
+1)Build Kubernetes cluster on AWS from scratch with minikube
 
-```bash
-$ python manage.py makemigrations
-```
+2)Setup and manage docker containers for django and react
 
-This will create all the migrations file (database migrations) required to run this App.
+3)Managed Deployment , Replication, Auto-healing, Auto-Scaling for kubernetes cluster
 
-Now, to apply this migrations run the following command
-```bash
-$ python manage.py migrate
-```
+4)Managed network and services with host IP Allocation
 
-One last step and then our todo App will be live. We need to create an admin user to run this App. On the terminal, type the following command and provide username, password and email for the admin user
-```bash
-$ python manage.py createsuperuser
-```
+# Step 1: Install Docker and Minikube
 
-That was pretty simple, right? Now let's make the App live. We just need to start the server now and then we can start using our simple todo App. Start the server by following command
+sudo apt-get update
 
-```bash
-$ python manage.py runserver
-```
+sudo apt install docker.io
 
-Once the server is hosted, head over to http://127.0.0.1:8000/todos for the App.
+# Step 2: Install minikube using link or install using below cmd:https://minikube.sigs.k8s.io/docs/start/
 
-Cheers and Happy Coding :)
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
+* The "docker" driver should not be used with root privileges. If you wish to continue as root, use --force.
+* 
+* If you are running minikube within a VM, consider using --driver=none:
+
+minikube status
+
+minikube start --force   ... if as root user
+
+# Step 3: Install Kubectl
+
+sudo snap install kubectl --classic
+
+kubectl get po -A
+
+
+# Step 4: Go inside k8s folder and run below cmds
+
+/home/ubuntu/django-todo-cicd/k8s
+
+kubectl apply -f pod.yaml
+
+kubectl get pods
+
+kubectl apply -f deployment.yaml
+
+kubectl get deployment
+
+kubectl get rs
+
+kubectl apply -f service.yaml
+
+kubectl get svc
+
+minikube service todo-service --url
+
+curl -L <url> ..... example curl -L http://192.168.49.2:30007 
+
+# Step 5 for Host IP Allocation:
+
+sudo vim /etc/hosts
+
+paste like this
+
+192.168.49.2 rushiapp.com
+
+Now we can serach rushiapp.com on command line interface for testing purpose
