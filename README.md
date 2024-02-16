@@ -19,7 +19,9 @@ sudo apt-get update
 
 sudo apt install docker.io
 
-# Step 2: Install minikube using link or install using below cmd:https://minikube.sigs.k8s.io/docs/start/
+# Step 2: Build image using docker file and Push image in docker hub and use that one in this project for kubernetes 
+
+# Step 3: Install minikube using link or install using below cmd:https://minikube.sigs.k8s.io/docs/start/
 
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
@@ -33,14 +35,14 @@ minikube status
 
 minikube start --force   ... if as root user
 
-# Step 3: Install Kubectl
+# Step 4: Install Kubectl
 
 sudo snap install kubectl --classic
 
 kubectl get po -A
 
 
-# Step 4: Go inside k8s folder and run below cmds
+# Step 5: Go inside k8s folder and run below cmds
 
 /home/ubuntu/django-todo-cicd/k8s
 
@@ -62,7 +64,7 @@ minikube service todo-service --url
 
 curl -L your-url      -> example curl -L http://192.168.49.2:30007 
 
-# Step 5 for Host IP Allocation:
+# Step 6: for Host IP Allocation:
 
 sudo vim /etc/hosts
 
