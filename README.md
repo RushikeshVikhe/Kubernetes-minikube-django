@@ -60,7 +60,7 @@ kubectl get svc
 
 minikube service todo-service --url
 
-curl -L <url> ..... example curl -L http://192.168.49.2:30007 
+curl -L <url>      ..... example curl -L http://192.168.49.2:30007 
 
 # Step 5 for Host IP Allocation:
 
