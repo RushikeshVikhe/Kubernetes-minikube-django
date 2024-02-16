@@ -20,6 +20,11 @@ sudo apt-get update
 sudo apt install docker.io
 
 # Step 2: Build image using docker file and Push image in docker hub and use that one in this project for kubernetes 
+
+docker build . -t <img-name>    ... for build image
+
+push on dockerhub
+
 if we want to run image then we can create container like this - docker run -d --name <container_name> -p 8000:8000 <img_name>
 
 # Step 3: Install minikube using link or install using below cmd:https://minikube.sigs.k8s.io/docs/start/
